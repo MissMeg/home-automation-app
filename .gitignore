@@ -1,0 +1,5 @@
+# Files you don't want sent to GitHub 
+# (Files you don't want or don't need to be made public)
+
+# Don't save the env folder
+env
