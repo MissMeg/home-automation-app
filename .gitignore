@@ -3,3 +3,8 @@
 
 # Don't save the env folder
 env
+
+# Don't save my db - so others can make their own
+groceries.db
+
+todos.db
