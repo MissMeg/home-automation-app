@@ -17,12 +17,12 @@ You will need Python version 3. This project utilizes pipenv. To run:
 
 1. Download the project
 2. Make sure you have pipenv installed - `python -m pip install pipenv` or `pip install pipenv`
-3. Install the dependencies - `pipenv install` or (to use the lock file only) `pipenv install --ignore-pipfile`
+3. Install the dependencies - `pipenv install --ignore-pipfile`
 4. Run with `pipenv python run app.py`
 
 To run this project in development mode:
 
 1. Download the project
 2. Make sure you have pipenv installed - `python -m pip install pipenv` or `pip install pipenv`
-3. Install the dependencies - `pipenv install --dev` or (to use the lock file only) `pipenv install --ignore-pipfile --dev`
+3. Install the dependencies - `pipenv install --dev`
 4. Run with `pipenv python run app.py`
