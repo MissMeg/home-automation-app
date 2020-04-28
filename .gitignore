@@ -1,7 +1,7 @@
 # Files you don't want sent to GitHub 
 # (Files you don't want or don't need to be made public)
 
-# Don't save the env folder
+# Don't save the env folder - if using python virtual env
 env
 
 # Don't save my db - so others can make their own
@@ -9,3 +9,6 @@ database
 
 # Keys - don't save your api keys to GitHub!!
 keys.py
+
+# DS_STORE
+.DS_Store
