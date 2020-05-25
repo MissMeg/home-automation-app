@@ -1,1 +1,0 @@
-# All weather logic

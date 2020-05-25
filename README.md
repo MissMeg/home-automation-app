@@ -26,3 +26,12 @@ To run this project in development mode:
 2. Make sure you have pipenv installed - `python -m pip install pipenv` or `pip install pipenv`
 3. Install the dependencies - `pipenv install --dev`
 4. Run with `pipenv python run app.py`
+
+## API in keys.py
+
+You will need to create your own keys.py file and include your API information.
+
+* [Weather API](https://openweathermap.org/)
+  * [Docs](https://openweathermap.org/forecast5)
+  * variables: weather_key = api key, city = your city, state = your state
+  

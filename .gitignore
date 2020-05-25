@@ -1,6 +1,8 @@
 # Files you don't want sent to GitHub 
 # (Files you don't want or don't need to be made public)
 
+.vscode
+
 # Don't save the env folder - if using python virtual env
 env
 
