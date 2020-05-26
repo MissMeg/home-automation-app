@@ -3,6 +3,8 @@
 
 .vscode
 
+__pycache__
+
 # Don't save the env folder - if using python virtual env
 env
 

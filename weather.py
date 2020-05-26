@@ -11,3 +11,7 @@ for data_point in resp.json()["list"]:
     print(data_point["main"]["temp"]) # temp
     print(data_point["weather"][0]["main"]) # clouds
     print(data_point["wind"]["speed"]) # wind
+
+# Todo: create class to hold the logic
+# Todo: Grab and organize correct info for the right day/time
+# Todo: Return info
