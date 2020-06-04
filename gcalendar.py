@@ -1,2 +1,4 @@
 # All calendar logic
-# todo:
+# todo: connect to api
+# todo: get events
+# todo return events

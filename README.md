@@ -34,4 +34,10 @@ You will need to create your own keys.py file and include your API information.
 * [Weather API](https://openweathermap.org/)
   * [Docs](https://openweathermap.org/forecast5)
   * variables: weather_key = api key, city = your city, state = your state
+
+## Google Calendar API
+
+Follow steps 1 and 2 from [Google's documentation](https://developers.google.com/calendar/quickstart/python?authuser=1). Make sure you are logged in with the Google account you want to use.
+
+Download your credentials (part of step 1) and add the file to your directory and to your .gitignore file.
   

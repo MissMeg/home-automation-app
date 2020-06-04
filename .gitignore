@@ -3,7 +3,7 @@
 
 .vscode
 
-__pycache__
+__pycache__/
 
 # Don't save the env folder - if using python virtual env
 env
@@ -13,6 +13,9 @@ database
 
 # Keys - don't save your api keys to GitHub!!
 keys.py
+
+# Google calendar credentials
+credentials.json
 
 # DS_STORE
 .DS_Store
