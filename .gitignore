@@ -9,7 +9,8 @@ __pycache__/
 env
 
 # Don't save my db - so others can make their own
-database
+todos.db
+glist.db
 
 # Keys - don't save your api keys to GitHub!!
 keys.py
