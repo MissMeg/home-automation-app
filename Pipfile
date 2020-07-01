@@ -12,6 +12,7 @@ google-auth-httplib2 = "*"
 google-auth-oauthlib = "*"
 peewee = "*"
 flask = "*"
+flask-wtf = "*"
 
 [requires]
 python_version = "3.8"
