@@ -9,7 +9,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
 
-class gcalendar:
+class Gcalendar:
     def __init__(self):
         self.event1 = {}
         self.event2 = {}
