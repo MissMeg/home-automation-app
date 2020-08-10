@@ -2,7 +2,8 @@
 
 :root {
     --orange-red: #F45D48;
-    --white: #FFFFFE;
+    --orange-red-blur: rgba(244, 93, 72, 0.5);
+    --off-white: #FFFFFE;
     --green-blue: #078080;
     --black: #232323;
     --light-black: rgba(34, 37, 37, 0.5);
@@ -11,4 +12,174 @@
 
 * {
     font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+    height: 100%;
+}
+
+#body {
+    background-color: var(--tan);
+    height: 100%;
+}
+
+#header h1 {
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--black);
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+#weather i {
+    color: var(--green-blue);
+}
+
+#weather #wind {
+    padding-left: 0px;
+}
+
+#weather p {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--black);
+}
+
+#main-weather {
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.today-weather {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.upcoming-weather {
+    font-size: 36px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
+#events .card {
+    box-shadow: 6px 6px 16px rgba(195, 195, 192, 0.5),
+                -3px -3px 16px rgba(195, 195, 192, 0.5);
+}
+
+#events h5 {
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--black);
+}
+
+#events p {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--light-black);
+}
+
+.list-group .list-group-item {
+    background-color: var(--tan);
+    border: none;
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.list-group-item p {
+    font-size: 12px;
+    color: var(--light-black);
+    margin: 0px;
+}
+
+#todo label, #grocery label {
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+    top: -.5rem;
+}
+
+#grocery label {
+    top: .5rem;
+}
+
+#grocery p {
+    font-size: 12px;
+    color: var(--light-black);
+    margin-top: 1rem;
+}
+
+#todo [type="checkbox"], #grocery [type="checkbox"] {
+    margin-top: .55rem;
+    margin-left: 1.25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    border: 1.5px solid var(--orange-red);
+    border-radius: 2px;
+    outline: none;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
+}
+
+#todo [type="checkbox"]:checked {
+    content: '\2713';
+    display: block;
+    text-align: center;
+    color: var(--orange-red);
+}
+
+#todo form, #grocery form {
+    width: 100%;
+}
+
+#todo .fa-circle {
+    color: var(--green-blue);
+    font-size: 40px;
+    font-weight: 300;
+    position: relative;
+    margin-right: 16px;
+}
+
+#todo .room-loc {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--black);
+    position: absolute;
+    left: 50%;
+    margin-left: -5px;
+    top: 50%;
+    margin-top: -8px;
+}
+
+.add-icon {
+    text-align: end;
+}
+
+.add-icon .fa-circle {
+    color: var(--orange-red);
+    font-size: 56px;
+    text-shadow: 6px 6px 16px var(--orange-red-blur);
+    position: relative;
+    cursor: pointer;
+}
+
+.add-icon .fa-plus {
+    color: var(--off-white);
+    font-size: 14px;
+    text-shadow: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -6px;
+    top: 50%;
+    margin-top: -7px;
+}
+
+#events .card {
+    background-color: var(--off-white);
 }

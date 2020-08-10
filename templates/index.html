@@ -5,43 +5,48 @@
         <title>Home Automation App</title>
         <meta name="description" content="An app that tracks the weather, calendar events, todo items, and grocery list.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Custom CSS-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css') }}">
         <!--Bootstrap CSS-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
         <!--Font Awesome Icons-->
         <script src="https://kit.fontawesome.com/75bde6854e.js" crossorigin="anonymous"></script>
-        <!--Custom CSS-->
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css') }}">
     </head>
     <body>
         <!--Main Wrapper-->
-        <div class="container-fluid">
-            <div class="row">
+        <div id="body" class="container-fluid">
+            <div id="header" class="row">
                 <!--Header - Date-->
                 <h1 class="col">Thursday, July 2</h1>
             </div>
             
             <div class="row align-items-center">
                 <!--Weather Section-->
-                <section class="col">
+                <section id="weather" class="col-5">
                     <div class="container">
                         <div class="row">
-                            <div class="col">
-                                <i class="fas fa-sun"></i>
-                                <p><i class="fas fa-tint"></i>60%</p>
-                                <p><i class="fas fa-wind"></i>12mph</p>
+                            <div id="center-weather" class="col">
+                                <div class="container">
+                                    <div class="row">
+                                        <i id="main-weather" class="col fas fa-sun"></i>
+                                    </div>
+                                    <div class="row">
+                                        <p class="col"><i class="today-weather fas fa-tint"></i>60%</p>
+                                        <p id="wind" class="col"><i class="today-weather fas fa-wind"></i>12mph</p>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col">
-                                <p><i class="fas fa-cloud-sun"></i>Tomorrow</p>
-                                <p><i class="fas fa-cloud-sun-rain"></i>Saturday</p>
-                                <p><i class="fas fa-cloud-showers-heavy"></i>Sunday</p>
+                                <p><i class="upcoming-weather fas fa-cloud-sun"></i>Tomorrow</p>
+                                <p><i class="upcoming-weather fas fa-cloud-sun-rain"></i>Saturday</p>
+                                <p><i class="upcoming-weather fas fa-cloud-showers-heavy"></i>Sunday</p>
                             </div>
                         </div>
-                        
                     </div>
                 </section>
 
                 <!--Events Section-->
-                <section class="col">
+                <section id="events" class="col-7">
                     <div class="container">
                         <div class="row">
                             <div class="col">
@@ -51,7 +56,6 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">Card title</h5>
                                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -67,7 +71,6 @@
                                             <div class="card-body">
                                                 <h5 class="card-title">Card title</h5>
                                                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -83,40 +86,227 @@
 
             <div class="row">
                 <!--Grocery Section-->
-                <section class="col">
+                <section id="grocery" class="col-5">
                     <div class="row">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Morbi leo risus</li>
-                            <li class="list-group-item">Porta ac consectetur ac</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
-                        </ul>
+                        <form action="">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                            <p>Big one for Jethro's treats</p>
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                            <p>Big one for Jethro's treats</p>
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </section>
 
                 <!--Todo Section-->
-                <section class="col">
+                <section id="todo" class="col-7">
                     <div class="row">
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <i class="far fa-circle"></i>
-                                Cras justo odio
-                                <i class="far fa-square"></i>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <i class="far fa-circle"></i>
-                                Dapibus ac facilisis in
-                                <i class="far fa-square"></i>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <i class="far fa-circle"></i>
-                                Morbi leo risus
-                                <i class="far fa-square"></i>
-                            </li>
-                        </ul>
+                        <form action="">
+                            <div class="container">
+                                <div class="row justify-content-around">
+                                    <div class="col">
+                                        <div class="form-group form-check">
+                                            <i class="far fa-circle">
+                                                <p class="room-loc">L</p>
+                                            </i>
+                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <i class="far fa-circle">
+                                                <p class="room-loc">L</p>
+                                            </i>
+                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <i class="far fa-circle">
+                                                <p class="room-loc">L</p>
+                                            </i>
+                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <i class="far fa-circle">
+                                                <p class="room-loc">L</p>
+                                            </i>
+                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <i class="far fa-circle">
+                                                <p class="room-loc">L</p>
+                                            </i>
+                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-group form-check">
+                                            <i class="far fa-circle">
+                                                <p class="room-loc">L</p>
+                                            </i>
+                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <i class="far fa-circle">
+                                                <p class="room-loc">L</p>
+                                            </i>
+                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <i class="far fa-circle">
+                                                <p class="room-loc">L</p>
+                                            </i>
+                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <i class="far fa-circle">
+                                                <p class="room-loc">L</p>
+                                            </i>
+                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <i class="far fa-circle">
+                                                <p class="room-loc">L</p>
+                                            </i>
+                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </section>
+            </div>
+            <div class="row">
+                <div class="col-5">
+                    <div class="row add-icon">
+                        <div class="col align-self-end">
+                            <i class="fas fa-circle" data-toggle="modal" data-target="#grocery-form"><i class="plus fas fa-plus"></i></i>
+                        </div>
+                    </div>
+                    <div id="grocery-form" class="modal modal-grocery" tabindex="-1" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="groceryItem">Item Name</label>
+                                            <input type="text" class="form-control" id="groceryItem">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="groceryDescription">Description</label>
+                                            <textarea class="form-control" id="groceryDescription" rows="3" placeholder="Optional"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-7">
+                    <div class="row add-icon">
+                        <div class="col align-self-end">
+                            <i class="fas fa-circle" data-toggle="modal" data-target="#todo-form"><i class="plus fas fa-plus"></i></i>
+                        </div>
+                    </div>
+                    <div id="todo-form" class="modal modal-todo" tabindex="-1" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="todoTitle">Todo Title</label>
+                                            <input type="text" class="form-control" id="todoTitle">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="roomLocation">Room Location</label>
+                                            <select class="form-control" id="roomLocation">
+                                                <option>Living Room</option>
+                                                <option>Kitchen</option>
+                                                <option>Dining Room</option>
+                                                <option>Basement</option>
+                                                <option>Office</option>
+                                                <option>Bedroom</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
