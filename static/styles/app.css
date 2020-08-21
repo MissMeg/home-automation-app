@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
 
+/********************************
+Main Styles
+********************************/
 :root {
     --orange-red: #F45D48;
     --orange-red-blur: rgba(244, 93, 72, 0.5);
@@ -23,6 +26,10 @@ html, body {
     height: 100%;
 }
 
+/********************************
+Header Styles
+********************************/
+
 #header h1 {
     font-size: 50px;
     font-weight: 600;
@@ -31,6 +38,10 @@ html, body {
     margin-top: 15px;
     margin-bottom: 25px;
 }
+
+/********************************
+Weather Styles
+********************************/
 
 #weather i {
     color: var(--green-blue);
@@ -63,6 +74,10 @@ html, body {
     margin-bottom: 20px;
 }
 
+/********************************
+Events Styles
+********************************/
+
 #events .card {
     box-shadow: 6px 6px 16px rgba(195, 195, 192, 0.5),
                 -3px -3px 16px rgba(195, 195, 192, 0.5);
@@ -79,6 +94,14 @@ html, body {
     font-weight: 400;
     color: var(--light-black);
 }
+
+#events .card {
+    background-color: var(--off-white);
+}
+
+/********************************
+Grocery & Todo Styles
+********************************/
 
 .list-group .list-group-item {
     background-color: var(--tan);
@@ -180,6 +203,29 @@ html, body {
     margin-top: -7px;
 }
 
-#events .card {
-    background-color: var(--off-white);
+.add-icon .fa-circle:active {
+    filter: brightness(75%)
+}
+
+/********************************
+Modal Styles
+********************************/
+
+.modal-header, .modal-body, .modal-footer {
+    background-color: var(--tan);
+}
+
+.modal h5, .modal label {
+    color: var(--black);
+}
+
+.modal .modal-body .btn {
+    background-color: var(--orange-red);
+    color: var(--off-white);
+    border-color: var(--orange-red);
+}
+
+.modal .modal-body .btn:active {
+    background-color: var(--orange-red);
+    filter: brightness(75%);
 }
