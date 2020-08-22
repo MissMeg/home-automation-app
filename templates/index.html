@@ -250,14 +250,14 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form action="{{ url_for('save_grocery') }}" method="POST">
                                         <div class="form-group">
                                             <label for="groceryItem">Item Name</label>
-                                            <input type="text" class="form-control" id="groceryItem">
+                                            <input type="text" class="form-control" id="groceryItem" name="item">
                                         </div>
                                         <div class="form-group">
                                             <label for="groceryDescription">Description</label>
-                                            <textarea class="form-control" id="groceryDescription" rows="3" placeholder="Optional"></textarea>
+                                            <textarea class="form-control" id="groceryDescription" rows="3" placeholder="Optional" name="description"></textarea>
                                         </div>
                                         <button type="submit" class="btn">Submit</button>
                                     </form>
@@ -289,14 +289,14 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form>
+                                    <form method="POST">
                                         <div class="form-group">
                                             <label for="todoTitle">Todo Title</label>
-                                            <input type="text" class="form-control" id="todoTitle">
+                                            <input type="text" class="form-control" id="todoTitle" name="title">
                                         </div>
                                         <div class="form-group">
                                             <label for="roomLocation">Room Location</label>
-                                            <select class="form-control" id="roomLocation">
+                                            <select class="form-control" id="roomLocation" name="location">
                                                 <option>Living Room</option>
                                                 <option>Kitchen</option>
                                                 <option>Dining Room</option>
@@ -316,6 +316,12 @@
                     </div>
                 </div>
             </div>
+            <p>{{ weather }}</p>
+            <p>{{ events }}</p>
+            {% for item in groceries %}
+                <p>{{ item }}</p>
+            {% endfor %}
+            <p>{{ todos }}</p>
         </div>
 
         <!--Bootstrap-->

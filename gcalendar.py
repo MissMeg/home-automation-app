@@ -70,5 +70,5 @@ class Gcalendar:
 
 
 if __name__ == '__main__':
-    cal = gcalendar()
+    cal = Gcalendar()
     print(cal.gcal_connect())
