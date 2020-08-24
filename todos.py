@@ -31,4 +31,4 @@ def initialize():
 
 if __name__ == '__main__':
     initialize()
-    Todos.create_todo('Walk the dog', 'O')
+    Todos.create_todo('Walk the dog', 'Outside')

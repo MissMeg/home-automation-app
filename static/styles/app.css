@@ -135,7 +135,7 @@ Grocery & Todo Styles
     margin-top: 1rem;
 }
 
-#todo [type="checkbox"], #grocery [type="checkbox"] {
+/* #todo [type="checkbox"], #grocery [type="checkbox"] {
     margin-top: .55rem;
     margin-left: 1.25rem;
     -webkit-appearance: none;
@@ -149,13 +149,13 @@ Grocery & Todo Styles
     height: 24px;
     width: 24px;
 }
-
-#todo [type="checkbox"]:checked {
+*/
+/* #todo [type="checkbox"]:checked {
     content: '\2713';
     display: block;
     text-align: center;
-    color: var(--orange-red);
-}
+    color: var(--green-blue);
+} */
 
 #todo form, #grocery form {
     width: 100%;

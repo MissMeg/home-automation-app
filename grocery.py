@@ -2,7 +2,6 @@
 from peewee import *
 
 
-# todo: setup ability to read (get all) items from db
 # todo: setup ability to update items in db
 # todo: setup ability to delete items in db
 
@@ -24,7 +23,7 @@ class Glist(Model):
 
     @classmethod
     def get_all(cls):
-        return cls.select(cls.title, cls.description).order_by(cls.description.desc())
+        return cls.select().order_by(cls.title.desc())
 
 
 def initialize():

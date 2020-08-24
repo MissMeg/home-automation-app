@@ -289,7 +289,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form method="POST">
+                                    <form action="{{ url_for('save_todo') }}" method="POST">
                                         <div class="form-group">
                                             <label for="todoTitle">Todo Title</label>
                                             <input type="text" class="form-control" id="todoTitle" name="title">
@@ -303,6 +303,7 @@
                                                 <option>Basement</option>
                                                 <option>Office</option>
                                                 <option>Bedroom</option>
+                                                <option>Outside</option>
                                             </select>
                                         </div>
                                         <button type="submit" class="btn">Submit</button>
@@ -319,9 +320,11 @@
             <p>{{ weather }}</p>
             <p>{{ events }}</p>
             {% for item in groceries %}
-                <p>{{ item }}</p>
+                <p>{{ item.title }}</p>
             {% endfor %}
-            <p>{{ todos }}</p>
+            {% for task in todos %}
+                <p>{{ task.title }}</p>
+            {% endfor %}
         </div>
 
         <!--Bootstrap-->
