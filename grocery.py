@@ -22,6 +22,10 @@ class Glist(Model):
             description=description
         )
 
+    @classmethod
+    def get_all(cls):
+        return cls.select().order_by(cls.title.asc())
+
 
 def initialize():
     DATABASE.connect()
