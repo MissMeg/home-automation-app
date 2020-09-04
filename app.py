@@ -5,20 +5,39 @@ from weather import Weather
 import grocery
 import todos
 
+
+# Weather
+my_weather = Weather()
+get_weather = my_weather.get_data(weather_key, city, state)
+
+# Events
+my_cal = Gcalendar()
+get_events = my_cal.gcal_connect()
+
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     groceries = grocery.Glist.get_all()
+    print(groceries)
     for item in groceries:
         print(item.title)
-    return render_template('index.html', groceries=groceries)
+    for task in tasks:
+        print(task.title)
+    return render_template('index.html', weather=get_weather, events=get_events, groceries=groceries, todos=tasks)
 
 @app.route('/save-grocery-item', methods=['GET', 'POST'])
 def save_grocery():
     data = request.form.to_dict()
     print(data)
     grocery.Glist.create_item(data['item'], data['description'])
+    return redirect(url_for('index'))
+
+@app.route('/save-todo-item', methods=['GET', 'POST'])
+def save_todo():
+    data = request.form.to_dict()
+    print(data)
+    todos.Todos.create_todo(data['title'], data['location'])
     return redirect(url_for('index'))
 
 

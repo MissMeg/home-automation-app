@@ -8,10 +8,6 @@ __pycache__/
 # Don't save the env folder - if using python virtual env
 env
 
-# Don't save my db - so others can make their own
-todos.db
-glist.db
-
 # Keys - don't save your api keys to GitHub!!
 keys.py
 

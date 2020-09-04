@@ -2,7 +2,6 @@
 from peewee import *
 
 
-# todo: setup ability to read (get all) items from db
 # todo: setup ability to update items in db
 # todo: setup ability to delete items in db
 
