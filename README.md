@@ -1,6 +1,6 @@
 # Home Automation App
 
-The goal of this app is to make information more accessible and to have a single place to hold information valuable to a family. The app will eventually be made to go with a RaspberryPi touch screen combo so the app can be interacted with and displayed in the home. For now, the project is made as a website interface so everyone can follow along.
+The goal of this app is to make information more accessible and to have a single place to hold information valuable to a family. The project is made as a website interface so everyone can follow along.
 
 ## Skills Practiced
 
