@@ -23,7 +23,7 @@ class Glist(Model):
 
     @classmethod
     def get_all(cls):
-        return cls.select().order_by(cls.title.desc())
+        return cls.select().order_by(cls.title.asc())
 
 
 def initialize():

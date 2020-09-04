@@ -5,6 +5,7 @@ from weather import Weather
 import grocery
 import todos
 
+
 # Weather
 my_weather = Weather()
 get_weather = my_weather.get_data(weather_key, city, state)
@@ -12,13 +13,6 @@ get_weather = my_weather.get_data(weather_key, city, state)
 # Events
 my_cal = Gcalendar()
 get_events = my_cal.gcal_connect()
-
-# Groceries
-# groceries = grocery.Glist.select()
-
-# Tasks
-tasks = todos.Todos.select()
-
 
 app = Flask(__name__)
 
@@ -50,4 +44,4 @@ def save_todo():
 if __name__ == '__main__':
     grocery.initialize()
     todos.initialize()
-    app.run(debug=True, host='0.0.0.0', port=8000)
+    app.run(debug=True, host='127.0.0.1', port=8000)
