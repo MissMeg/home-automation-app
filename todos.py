@@ -22,6 +22,10 @@ class Todos(Model):
             location=location
         )
 
+    @classmethod
+    def get_all(cls):
+        return cls.select().order_by(cls.title.asc())
+
 
 def initialize():
     DATABASE.connect()

@@ -19,6 +19,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     groceries = grocery.Glist.get_all()
+    tasks = todos.Todos.get_all()
     print(groceries)
     for item in groceries:
         print(item.title)
