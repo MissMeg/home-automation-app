@@ -55,7 +55,7 @@ For answers to common questions about this code of conduct, see the FAQ at
 
 ## How to Contribute
 
-Option #1: Start with the Hacktoberfest issue [here](#) to see a list of all current issues. When you find an issue you would like to take on, comment on the issue and say you are taking it on so other's know it is taken. If at any point you no longer want to work on the issue, make sure to comment on the issue so other's know it is available again.
+Option #1: Start with the Hacktoberfest issue [here](https://github.com/MissMeg/home-automation-app/issues/2) to see a list of all current issues. When you find an issue you would like to take on, comment on the issue and say you are taking it on so other's know it is taken. If at any point you no longer want to work on the issue, make sure to comment on the issue so other's know it is available again.
 
 Option #2: If you have found a bug or would like to add a new feature to the project, create a new issue and tag me in it for approval. Once approved, you're good to get coding! You can also submit issues for others to tackle if you do not want to code it yourself.
 
