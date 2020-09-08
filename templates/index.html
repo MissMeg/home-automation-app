@@ -79,52 +79,42 @@
                         <form action="">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col">
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                            <p>Big one for Jethro's treats</p>
+                                    {% if len_groc < 6 %}
+                                        <div class="col">
+                                        {% for item in groceries %}
+                                            <div class="form-group form-check">
+                                                <label class="form-check-label" for="exampleCheck1">{{ item.title }}</label>
+                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                {% if item.description %}
+                                                    <p>{{ item.description }}</p>
+                                                {% endif %}
+                                            </div>
+                                        {% endfor %}
                                         </div>
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    {% else %}
+                                        <div class="col">
+                                            {% for i in range(5) %}
+                                                <div class="form-group form-check">
+                                                    <label class="form-check-label" for="exampleCheck1">{{ groceries[i].title }}</label>
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                    {% if groceries[i].description %}
+                                                        <p>{{ groceries[i].description }}</p>
+                                                    {% endif %}
+                                                </div>
+                                            {% endfor %}
                                         </div>
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <div class="col">
+                                            {% for i in range(5, len_groc) %}
+                                                <div class="form-group form-check">
+                                                    <label class="form-check-label" for="exampleCheck1">{{ groceries[i].title }}</label>
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                    {% if groceries[i].description %}
+                                                        <p>{{ groceries[i].description }}</p>
+                                                    {% endif %}
+                                                </div>
+                                            {% endfor %}
                                         </div>
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                            <p>Big one for Jethro's treats</p>
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <label class="form-check-label" for="exampleCheck1">Peanut Butter</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </form>
@@ -137,80 +127,42 @@
                         <form action="">
                             <div class="container">
                                 <div class="row justify-content-around">
-                                    <div class="col">
-                                        <div class="form-group form-check">
-                                            <i class="far fa-circle">
-                                                <p class="room-loc">L</p>
-                                            </i>
-                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    {% if len_todo < 6 %}
+                                        <div class="col">
+                                        {% for task in todos %}
+                                            <div class="form-group form-check">
+                                                <i class="far fa-circle">
+                                                    <p class="room-loc">{{ task.location[0] }}</p>
+                                                </i>
+                                                <label class="form-check-label" for="exampleCheck1">{{ task.title }}</label>
+                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                            </div>
+                                        {% endfor %}
                                         </div>
-                                        <div class="form-group form-check">
-                                            <i class="far fa-circle">
-                                                <p class="room-loc">L</p>
-                                            </i>
-                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    {% else %}
+                                        <div class="col">
+                                            {% for i in range(5) %}
+                                                <div class="form-group form-check">
+                                                    <i class="far fa-circle">
+                                                        <p class="room-loc">{{ todos[i].location[0] }}</p>
+                                                    </i>
+                                                    <label class="form-check-label" for="exampleCheck1">{{ todos[i].title }}</label>
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                </div>
+                                            {% endfor %}
                                         </div>
-                                        <div class="form-group form-check">
-                                            <i class="far fa-circle">
-                                                <p class="room-loc">L</p>
-                                            </i>
-                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <div class="col">
+                                            {% for i in range(5, len_todo) %}
+                                                <div class="form-group form-check">
+                                                    <i class="far fa-circle">
+                                                        <p class="room-loc">{{ todos[i].location[0] }}</p>
+                                                    </i>
+                                                    <label class="form-check-label" for="exampleCheck1">{{ todos[i].title }}</label>
+                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                                </div>
+                                            {% endfor %}
                                         </div>
-                                        <div class="form-group form-check">
-                                            <i class="far fa-circle">
-                                                <p class="room-loc">L</p>
-                                            </i>
-                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <i class="far fa-circle">
-                                                <p class="room-loc">L</p>
-                                            </i>
-                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="form-group form-check">
-                                            <i class="far fa-circle">
-                                                <p class="room-loc">L</p>
-                                            </i>
-                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <i class="far fa-circle">
-                                                <p class="room-loc">L</p>
-                                            </i>
-                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <i class="far fa-circle">
-                                                <p class="room-loc">L</p>
-                                            </i>
-                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <i class="far fa-circle">
-                                                <p class="room-loc">L</p>
-                                            </i>
-                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                        <div class="form-group form-check">
-                                            <i class="far fa-circle">
-                                                <p class="room-loc">L</p>
-                                            </i>
-                                            <label class="form-check-label" for="exampleCheck1">Mop the floor</label>
-                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        </div>
-                                    </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </form>
@@ -306,13 +258,6 @@
                 </div>
             </div>
             <p>{{ weather }}</p>
-            <p>{{ events }}</p>
-            {% for item in groceries %}
-                <p>{{ item.title }}</p>
-            {% endfor %}
-            {% for task in todos %}
-                <p>{{ task.title }}</p>
-            {% endfor %}
         </div>
 
         <!--Bootstrap-->

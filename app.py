@@ -15,12 +15,8 @@ get_weather = my_weather.get_data(weather_key, city, state)
 my_cal = Gcalendar()
 get_events = my_cal.gcal_connect()
 
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    groceries = grocery.Glist.get_all()
-    tasks = todos.Todos.get_all()
+# Today's date for header
+def today_date():
     today = date.today()
     weekday = today.weekday()
     days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 
@@ -29,8 +25,18 @@ def index():
               'April', 'May', 'June', 
               'July', 'August', 'September', 
               'October', 'November', 'December']
-    date_string = str(days[weekday] + ', ' + months[today.month - 1] + ' ' + str(today.day))
-    return render_template('index.html', date=date_string, weather=get_weather, events=get_events, groceries=groceries, todos=tasks)
+    return str(days[weekday] + ', ' + months[today.month - 1] + ' ' + str(today.day))
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    # get all items from our DB
+    groceries = grocery.Glist.get_all()
+    tasks = todos.Todos.get_all()
+    
+    # handle getting today's date for the header
+    return render_template('index.html', date=today_date(), weather=get_weather, events=get_events, len_groc=len(groceries), groceries=groceries, len_todo=len(tasks), todos=tasks)
 
 @app.route('/save-grocery-item', methods=['GET', 'POST'])
 def save_grocery():
