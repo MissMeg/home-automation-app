@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request
 from keys import weather_key, city, state
 from gcalendar import Gcalendar
 from weather import Weather
+from datetime import date
 import grocery
 import todos
 
@@ -20,12 +21,16 @@ app = Flask(__name__)
 def index():
     groceries = grocery.Glist.get_all()
     tasks = todos.Todos.get_all()
-    print(groceries)
-    for item in groceries:
-        print(item.title)
-    for task in tasks:
-        print(task.title)
-    return render_template('index.html', weather=get_weather, events=get_events, groceries=groceries, todos=tasks)
+    today = date.today()
+    weekday = today.weekday()
+    days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 
+            'Friday', 'Saturday', 'Sunday']
+    months = ['January', 'February', 'March', 
+              'April', 'May', 'June', 
+              'July', 'August', 'September', 
+              'October', 'November', 'December']
+    date_string = str(days[weekday] + ', ' + months[today.month - 1] + ' ' + str(today.day))
+    return render_template('index.html', date=date_string, weather=get_weather, events=get_events, groceries=groceries, todos=tasks)
 
 @app.route('/save-grocery-item', methods=['GET', 'POST'])
 def save_grocery():
