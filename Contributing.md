@@ -63,12 +63,13 @@ Option #2: If you have found a bug or would like to add a new feature to the pro
 
 1. Claim an issue
 2. Fork the project
-3. Work on the code on your machine.
-4. Push your code to your forked project.
-5. Create a pull request.
-6. Wait to see if it's accepted.
-7. Celebrate! You've just contributed to a project!
-8. Now go do it again! :)
+3. Download the code
+4. Work on the code on your machine.
+5. Push your code to your forked project.
+6. Create a pull request.
+7. Wait to see if it's accepted.
+8. Celebrate! You've just contributed to a project!
+9. Now go do it again! :)
 
 ### Best Practices
 
