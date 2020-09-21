@@ -1,4 +1,4 @@
-# Hme Automation App
+# Home Automation App
 
 The goal of this app is to make information more accessible and to have a single place to hold information valuable to a family. The project is made as a website interface so everyone can follow along.
 
