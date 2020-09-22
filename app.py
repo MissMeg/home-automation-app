@@ -15,6 +15,32 @@ get_weather = my_weather.get_data(weather_key, city, state)
 my_cal = Gcalendar()
 get_events = my_cal.gcal_connect()
 
+def make_app():
+    app = Flask(__name__)
+    @app.route('/')
+    def index():
+        # get all items from our DB
+        groceries = grocery.Glist.get_all()
+        tasks = todos.Todos.get_all()
+
+        # handle getting today's date for the header
+        return render_template('index.html', date=today_date(), weather=get_weather, events=get_events, len_groc=len(groceries), groceries=groceries, len_todo=len(tasks), todos=tasks)
+
+    @app.route('/save-grocery-item', methods=['GET', 'POST'])
+    def save_grocery():
+        data = request.form.to_dict()
+        print(data)
+        grocery.Glist.create_item(data['item'], data['description'])
+        return redirect(url_for('index'))
+
+    @app.route('/save-todo-item', methods=['GET', 'POST'])
+    def save_todo():
+        data = request.form.to_dict()
+        print(data)
+        todos.Todos.create_todo(data['title'], data['location'])
+        return redirect(url_for('index'))
+    return app
+
 # Today's date for header
 def today_date():
     today = date.today()
@@ -26,32 +52,6 @@ def today_date():
               'July', 'August', 'September', 
               'October', 'November', 'December']
     return str(days[weekday] + ', ' + months[today.month - 1] + ' ' + str(today.day))
-
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    # get all items from our DB
-    groceries = grocery.Glist.get_all()
-    tasks = todos.Todos.get_all()
-    
-    # handle getting today's date for the header
-    return render_template('index.html', date=today_date(), weather=get_weather, events=get_events, len_groc=len(groceries), groceries=groceries, len_todo=len(tasks), todos=tasks)
-
-@app.route('/save-grocery-item', methods=['GET', 'POST'])
-def save_grocery():
-    data = request.form.to_dict()
-    print(data)
-    grocery.Glist.create_item(data['item'], data['description'])
-    return redirect(url_for('index'))
-
-@app.route('/save-todo-item', methods=['GET', 'POST'])
-def save_todo():
-    data = request.form.to_dict()
-    print(data)
-    todos.Todos.create_todo(data['title'], data['location'])
-    return redirect(url_for('index'))
-
 
 if __name__ == '__main__':
     grocery.initialize()
