@@ -59,3 +59,35 @@ Download your credentials (file should be called credentials.json) and add the f
 ## Todos and Grocery List
 
 Both the Todos and Grocery list are using [Peewee](http://docs.peewee-orm.com/en/latest/) to create  a SQLite database.
+
+## Installing Docker
+
+With Docker you can run this project out-of-the-box without worrying about dependency issues. To get started you must download the Docker desktop locally [from here](https://docs.docker.com/desktop/). Select your OS and download the agent. e.g. If you are using a Mac, please click "Mac" > "Install Docker Desktop on Mac" > click "Download from Docker Hub"
+
+## Running with Docker - Dockerfile
+
+The easiest way to run this project is using the command line below:
+
+```bash
+docker build -t home-automation-app . && \
+  docker run --env-file .env.home_automation_app -p 8000:8000 home-automation-app
+```
+
+This uses the `Dockerfile` to do the setup for us. After building the app, we tell the Docker agent to run using our `.env` file. This is only accesible by you and you must **not** share these details to anyone.
+
+```bash
+WEATHER_KEY=YOUR_API_KEY
+WEATHER_CITY=YOUR_CITY
+WEATHER_STATE=YOUR_STATE
+CAL_ID=YOUR_CALENDAR_ID
+```
+
+## Running Docker - Using Docker compose
+
+An even easier way to run the app is just configure your `.env` file (like above) but run the command below:
+
+```bash
+docker-compose up -d
+```
+
+Docker compose is just like Dockerfile, but it's more useful as an ochestration tool to launch multiple docker containers.
