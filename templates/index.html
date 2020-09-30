@@ -38,9 +38,9 @@
                                 </div>
                             </div>
                             <div class="col">
-                                <p><i class="upcoming-weather fas fa-cloud-sun"></i>Tomorrow</p>
-                                <p><i class="upcoming-weather fas fa-cloud-sun-rain"></i>Saturday</p>
-                                <p><i class="upcoming-weather fas fa-cloud-showers-heavy"></i>Sunday</p>
+				    <p><i class="upcoming-weather fas fa-cloud-sun"></i>Tomorrow: {{ weather[0].temp }} °F, {{ weather[0].weather }}</p>
+				    <p><i class="upcoming-weather fas fa-cloud-sun-rain"></i>Saturday: {{ weather[1].temp }} °F, {{ weather[1].weather }}</p>
+				    <p><i class="upcoming-weather fas fa-cloud-showers-heavy"></i>Sunday: {{ weather[2].temp }} °F, {{ weather[2].weather }}</p>
                             </div>
                         </div>
                     </div>
@@ -257,7 +257,6 @@
                     </div>
                 </div>
             </div>
-            <p>{{ weather }}</p>
         </div>
 
         <!--Bootstrap-->
