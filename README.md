@@ -2,6 +2,17 @@
 
 The goal of this app is to make information more accessible and to have a single place to hold information valuable to a family. The project is made as a website interface so everyone can follow along.
 
+Table of Contents
+=================
+
+   * [Skills Practiced](#skills-practiced)
+   * [Current Features](#current-features)
+   * [Running the Project](#running-the-project)
+   * [API in keys.py](#api-in-keyspy)
+   * [Weather API](#weather-api)
+   * [Google Calendar API](#google-calendar-api)
+   * [Todos and Grocery List](#todos-and-grocery-list)
+
 ## Skills Practiced
 
 * Api connections
