@@ -51,6 +51,13 @@ def save_grocery():
     grocery.Glist.create_item(data['item'], data['description'])
     return redirect(url_for('index'))
 
+@app.route('/delete-todo-item', methods=['GET', 'POST'])
+def delete_todo():
+    data = request.form.to_dict()
+    print(data)
+    todos.Todos.delete_todo(data['title'], data['location'])
+    return redirect(url_for('index'))
+
 @app.route('/save-todo-item', methods=['GET', 'POST'])
 def save_todo():
     data = request.form.to_dict()
