@@ -85,7 +85,7 @@ The idea for adding pre-commit is to check all python code has been formatted un
 
 But before installing pre-commit, you need to first have [isort](https://github.com/timothycrosley/isort), [black](https://github.com/ambv/black) & [flake8](https://gitlab.com/pycqa/flake8) installed into your local machine. This is so when pre-commit warns you of unformatted code you can just run these commands separately against your code (e.g. with black the command would look like `black path/to/your/python/code.py` ) before committing changes.
 
-To find the matching versions of these 3 dependencies, please refer to (thhe .pre-commit-config.yaml)[/.pre-commit-config.yaml] file under `rev:`.
+To find the matching versions of these 3 dependencies, please refer to `.pre-commit-config.yaml` file and check version under `rev:`.
 
 ### Pre-commit - install
 To install, please refer to [install pre-commit](https://pre-commit.com/#quick-start) to your local machine.
