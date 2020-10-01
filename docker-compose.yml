@@ -8,6 +8,9 @@ services:
      - .env.home_automation_app
     volumes:
       - ./:/usr/src/app
+    environment:
+      FLASK_ENV: development
+      FLASK_APP: ./app.py
     ports:
-     - "8000:8000"
+     - "8000:5000"
     restart: always
