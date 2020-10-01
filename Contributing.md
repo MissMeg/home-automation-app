@@ -78,3 +78,16 @@ Option #2: If you have found a bug or would like to add a new feature to the pro
 * The goal is to help others learn how to contribute - no bug it too small
 * Explain thoroughly so coders at any level can understand. KISS ;)
 * Keep discussions polite and professional (See the COC above)
+
+### Pre-commit - prerequisites
+
+The idea for adding pre-commit is to check all python code has been formatted universally across the entire repo.
+
+But before installing pre-commit, you need to first have [isort](https://github.com/timothycrosley/isort), [black](https://github.com/ambv/black) & [flake8](https://gitlab.com/pycqa/flake8) installed into your local machine. This is so when pre-commit warns you of unformatted code you can just run these commands separately against your code (e.g. with black the command would look like `black path/to/your/python/code.py` ) before committing changes.
+
+To find the matching versions of these 3 dependencies, please refer to (thhe .pre-commit-config.yaml)[/.pre-commit-config.yaml] file under `rev:`.
+
+### Pre-commit - install
+To install, please refer to [install pre-commit](https://pre-commit.com/#quick-start) to your local machine.
+
+At the time of this writing (2020/10/01) the latest version of pre-commit is `2.7.1`. With this you install [isort](https://github.com/timothycrosley/isort), [black](https://github.com/ambv/black) & [flake8](https://gitlab.com/pycqa/flake8) as a python linter + formatter that runs everytime you commit your changes to your branch so you don't have to worry about breaking coding format from other devs :)
