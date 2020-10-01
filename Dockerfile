@@ -9,7 +9,7 @@ COPY Pipfile.lock ./
 
 RUN set -ex && pipenv install --deploy --system
 
-COPY . .
+COPY . /usr/src/app
 
 EXPOSE 8000
 
