@@ -54,7 +54,8 @@ You will need to create your own keys.py file and include your API information.
 
 * [Weather API](https://openweathermap.org/)
   * variables: weather_key = api key, city = your city, state = your state
-* If you want to connect to a specific Google Calendar (other than your primary one) you will need to grab the calendar's ID from it's settings.
+* If you want to connect to a specific Google Calendar (other than your primary one) you will need to grab the calendar's ID from it's settings (click on the gear icon in the top right of your screen, select "Settings", and scroll down to 'Integrate calendar')
+
   * variable: cal_key = calendar id 
  
 example keys.py
@@ -66,7 +67,7 @@ cal_key = "Calender id"
 ```
 ## Weather API
 
-Create an account at [Open Weathermap](https://openweathermap.org/) to get an API key. Add the key to your keys.py file. You can find the docs [here](https://openweathermap.org/forecast5) for the specific API connection being used.
+Create an [OpenWeather](https://openweathermap.org/) account to get an API key. Add the key to your keys.py file. You can find the docs [here](https://openweathermap.org/forecast5) for the specific API connection being used.
 
 ## Google Calendar API
 
