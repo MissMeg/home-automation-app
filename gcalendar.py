@@ -58,11 +58,10 @@ class Gcalendar:
             self.events.append(
                 dict(
                     summary=event['summary'],
-                    start=event['start'].get('dateTime', event['start'].get('date'))
+                    start=event['start'].get('dateTime', event['start'].get('date')),
+                    location=event['location'] if 'location' in event.keys() else ''
                 )
             )
-            if 'location' in event.keys():
-                self.events.append({'location': event['location']})
         return tuple(self.events)
 
 
