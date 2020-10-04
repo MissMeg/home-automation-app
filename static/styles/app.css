@@ -1,29 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
 
 /********************************
 Main Styles
 ********************************/
 :root {
-    --orange-red: #F45D48;
-    --orange-red-blur: rgba(244, 93, 72, 0.5);
-    --off-white: #FFFFFE;
-    --green-blue: #078080;
-    --black: #232323;
-    --light-black: rgba(34, 37, 37, 0.5);
-    --tan: #F8F5F2;
+  --orange-red: #f45d48;
+  --orange-red-blur: rgba(244, 93, 72, 0.5);
+  --off-white: #fffffe;
+  --green-blue: #078080;
+  --black: #232323;
+  --light-black: rgba(34, 37, 37, 0.5);
+  --tan: #f8f5f2;
 }
 
 * {
-    font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 #body {
-    background-color: var(--tan);
-    height: 100%;
+  background-color: var(--tan);
+  height: 100%;
 }
 
 /********************************
@@ -31,12 +32,12 @@ Header Styles
 ********************************/
 
 #header h1 {
-    font-size: 50px;
-    font-weight: 600;
-    text-align: center;
-    color: var(--black);
-    margin-top: 15px;
-    margin-bottom: 25px;
+  font-size: 50px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--black);
+  margin-top: 15px;
+  margin-bottom: 25px;
 }
 
 /********************************
@@ -44,34 +45,34 @@ Weather Styles
 ********************************/
 
 #weather i {
-    color: var(--green-blue);
+  color: var(--green-blue);
 }
 
 #weather #wind {
-    padding-left: 0px;
+  padding-left: 0px;
 }
 
 #weather p {
-    font-size: 20px;
-    font-weight: 400;
-    color: var(--black);
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--black);
 }
 
 #main-weather {
-    font-size: 64px;
-    text-align: center;
-    margin-bottom: 40px;
+  font-size: 64px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .today-weather {
-    font-size: 24px;
-    margin-right: 10px;
+  font-size: 24px;
+  margin-right: 10px;
 }
 
 .upcoming-weather {
-    font-size: 36px;
-    margin-right: 30px;
-    margin-bottom: 20px;
+  font-size: 36px;
+  margin-right: 30px;
+  margin-bottom: 20px;
 }
 
 /********************************
@@ -79,24 +80,24 @@ Events Styles
 ********************************/
 
 #events .card {
-    box-shadow: 6px 6px 16px rgba(195, 195, 192, 0.5),
-                -3px -3px 16px rgba(195, 195, 192, 0.5);
+  box-shadow: 6px 6px 16px rgba(195, 195, 192, 0.5),
+    -3px -3px 16px rgba(195, 195, 192, 0.5);
 }
 
 #events h5 {
-    font-size: 21px;
-    font-weight: 400;
-    color: var(--black);
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--black);
 }
 
 #events p {
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--light-black);
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--light-black);
 }
 
 #events .card {
-    background-color: var(--off-white);
+  background-color: var(--off-white);
 }
 
 /********************************
@@ -104,129 +105,135 @@ Grocery & Todo Styles
 ********************************/
 
 .list-group .list-group-item {
-    background-color: var(--tan);
-    border: none;
-    color: var(--black);
-    font-size: 16px;
-    font-weight: 400;
+  background-color: var(--tan);
+  border: none;
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 400;
 }
 
 .list-group-item p {
-    font-size: 12px;
-    color: var(--light-black);
-    margin: 0px;
+  font-size: 12px;
+  color: var(--light-black);
+  margin: 0px;
 }
 
-#todo label, #grocery label {
-    color: var(--black);
-    font-size: 16px;
-    font-weight: 400;
-    position: relative;
-    top: -.5rem;
+#todo label,
+#grocery label {
+  color: var(--black);
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  top: -0.5rem;
 }
 
 #grocery label {
-    top: .5rem;
+  top: 0.5rem;
 }
 
 #grocery p {
-    font-size: 12px;
-    color: var(--light-black);
-    margin-top: 1rem;
+  font-size: 12px;
+  color: var(--light-black);
+  margin-top: 1rem;
 }
 
 /* https://dev.to/proticm/styling-html-checkboxes-is-super-easy-302o */
-#todo [type="checkbox"], #grocery [type="checkbox"] {
-    margin-top: .55rem;
-    margin-left: 1.25rem;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -o-appearance: none;
-    border: 1.5px solid var(--orange-red);
-    border-radius: 2px;
-    outline: none;
-    transition-duration: 0.3s;
-    cursor: pointer;
-    height: 24px;
-    width: 24px;
+#todo [type="checkbox"],
+#grocery [type="checkbox"] {
+  margin-top: 0.55rem;
+  margin-left: 1.25rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  border: 1.5px solid var(--orange-red);
+  border-radius: 2px;
+  outline: none;
+  transition-duration: 0.3s;
+  cursor: pointer;
+  height: 24px;
+  width: 24px;
 }
 
 #todo [type="checkbox"]:checked {
-    content: '\2713';
-    display: block;
-    text-align: center;
-    color: var(--green-blue);
+  content: "\2713";
+  display: block;
+  text-align: center;
+  color: var(--green-blue);
 }
 
-#todo form, #grocery form {
-    width: 100%;
+#todo form,
+#grocery form {
+  width: 100%;
 }
 
 #todo .fa-circle {
-    color: var(--green-blue);
-    font-size: 40px;
-    font-weight: 300;
-    position: relative;
-    margin-right: 16px;
+  color: var(--green-blue);
+  font-size: 40px;
+  font-weight: 300;
+  position: relative;
+  margin-right: 16px;
 }
 
 #todo .room-loc {
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--black);
-    position: absolute;
-    left: 50%;
-    margin-left: -5px;
-    top: 50%;
-    margin-top: -8px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--black);
+  position: absolute;
+  left: 50%;
+  margin-left: -5px;
+  top: 50%;
+  margin-top: -8px;
 }
 
 .add-icon {
-    text-align: end;
+  text-align: end;
 }
 
 .add-icon .fa-circle {
-    color: var(--orange-red);
-    font-size: 56px;
-    text-shadow: 6px 6px 16px var(--orange-red-blur);
-    position: relative;
-    cursor: pointer;
+  color: var(--orange-red);
+  font-size: 56px;
+  text-shadow: 6px 6px 16px var(--orange-red-blur);
+  position: relative;
+  cursor: pointer;
 }
 
 .add-icon .fa-plus {
-    color: var(--off-white);
-    font-size: 14px;
-    text-shadow: none;
-    position: absolute;
-    left: 50%;
-    margin-left: -6px;
-    top: 50%;
-    margin-top: -7px;
+  color: var(--off-white);
+  font-size: 14px;
+  text-shadow: none;
+  position: absolute;
+  left: 50%;
+  margin-left: -6px;
+  top: 50%;
+  margin-top: -7px;
 }
 
 .add-icon .fa-circle:active {
-    filter: brightness(75%)
+  filter: brightness(75%);
 }
 
 /********************************
 Modal Styles
 ********************************/
 
-.modal-header, .modal-body, .modal-footer {
-    background-color: var(--tan);
+.modal-header,
+.modal-body,
+.modal-footer {
+  background-color: var(--tan);
 }
 
-.modal h5, .modal label {
-    color: var(--black);
+.modal h5,
+.modal label {
+  color: var(--black);
 }
 
 .modal .modal-body .btn {
-    background-color: var(--orange-red);
-    color: var(--off-white);
-    border-color: var(--orange-red);
+  background-color: var(--orange-red);
+  color: var(--off-white);
+  border-color: var(--orange-red);
 }
 
 .modal .modal-body .btn:active {
-    background-color: var(--orange-red);
-    filter: brightness(75%);
+  background-color: var(--orange-red);
+  filter: brightness(75%);
 }
