@@ -23,6 +23,10 @@ class Todos(Model):
         )
 
     @classmethod
+    def delete_todo(cls, title, location):
+        cls.delete().where(cls.title == title, cls.location == location).execute()
+
+    @classmethod
     def get_all(cls):
         return cls.select().order_by(cls.title.asc())
 
