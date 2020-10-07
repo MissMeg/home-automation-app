@@ -30,7 +30,7 @@ Current features are in the works. They will consist of:
 * ToDo list
 * Calendar events for the day
 
-## Running the Project
+## Running the Project (without Docker)
 
 You will need Python version 3. This project utilizes [pipenv](https://realpython.com/pipenv-guide/) to run:
 
@@ -47,6 +47,48 @@ To run this project in development mode:
 3. Create the environment with `python -m pipenv shell`
 4. Install the dependencies - `pipenv install --dev`
 5. Run with `pipenv run python app.py`
+
+## Running the Project (WITH Docker)
+
+With this approach you save more time as Docker containerizes the entire platform abstracting dependency issues away from developers.
+
+1. Install Docker daemon
+
+    1. Run project (with Dockerfile)
+    2. Run project (with docker-compose, the easiest/fastest way)
+
+
+## Install Docker daemon
+
+Download the Docker desktop locally [from here](https://docs.docker.com/desktop/). Select your OS and download the agent. e.g. If you are using a Mac, please click "Mac" > "Install Docker Desktop on Mac" > click "Download from Docker Hub"
+
+## Run project (with Dockerfile)
+
+The easiest way to run this project is using the command line below:
+
+```bash
+docker build -t home-automation-app . && \
+  docker run --env-file .env.home_automation_app -p 8000:8000 home-automation-app
+```
+
+This uses the `Dockerfile` to do the setup for us. After building the app, we tell the Docker agent to run using our `.env` file. This is only accesible by you and you must **not** share these details to anyone.
+
+```bash
+WEATHER_KEY=YOUR_API_KEY
+WEATHER_CITY=YOUR_CITY
+WEATHER_STATE=YOUR_STATE
+CAL_ID=YOUR_CALENDAR_ID
+```
+
+## Run project (with docker-compose)
+
+An even easier way to run the app is just configure your `.env` file (like above) but run the command below:
+
+```bash
+docker-compose up -d
+```
+
+Docker compose is just like Dockerfile, but it's more useful as an ochestration tool to launch multiple docker containers.
 
 ## API in keys.py
 

@@ -253,6 +253,35 @@
                         class="form-check-input"
                         id="exampleCheck1"
                       />
+                    <!--Grocery Form Modal-->
+                    <div id="grocery-form" class="modal modal-grocery" tabindex="-1" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="header-title">
+                                        <h5 class="modal-title">New Item</h5>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{ url_for('save_grocery') }}" method="POST">
+                                        <div class="form-group">
+                                            <label for="groceryItem">Item Name</label>
+                                            <input type="text" class="form-control" id="groceryItem" name="item">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="groceryDescription">Description</label>
+                                            <textarea class="form-control" id="groceryDescription" rows="3" placeholder="Optional" name="description"></textarea>
+                                        </div>
+                                        <div class="form-btns">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     {% endfor %}
                   </div>
@@ -404,6 +433,45 @@
                         id="todoTitle"
                         name="title"
                       />
+                    <!--Todo Form Modal-->
+                    <div id="todo-form" class="modal modal-todo" tabindex="-1" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="header-title">
+                                        <h5>New Todo</h5>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{ url_for('save_todo') }}" method="POST">
+                                        <div class="form-group">
+                                            <label for="todoTitle">Todo Title</label>
+                                            <input type="text" class="form-control" id="todoTitle" name="title">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="roomLocation">Room Location</label>
+                                            <select class="form-control" id="roomLocation" name="location">
+                                                <option>Living Room</option>
+                                                <option>Kitchen</option>
+                                                <option>Dining Room</option>
+                                                <option>Basement</option>
+                                                <option>Office</option>
+                                                <option>Bedroom</option>
+                                                <option>Outside</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-btns">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="form-group">
                       <label for="roomLocation">Room Location</label>

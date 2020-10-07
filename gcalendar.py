@@ -11,8 +11,7 @@ from google.auth.transport.requests import Request
 
 class Gcalendar:
     def __init__(self):
-        self.event1 = {}
-        self.event2 = {}
+        self.events = []
 
     def gcal_connect(self):
         """Shows basic usage of the Google Calendar API.
@@ -56,17 +55,14 @@ class Gcalendar:
 
     def set_data(self, events):
         for event in events:
-            if not self.event1:
-                self.event1['summary'] = event['summary']
-                self.event1['start'] = event['start'].get('dateTime', event['start'].get('date'))
-                if 'location' in event.keys():
-                    self.event1['location'] = event['location']
-            else:
-                self.event2['summary'] = event['summary']
-                self.event2['start'] = event['start'].get('dateTime', event['start'].get('date'))
-                if 'location' in event.keys():
-                    self.event2['location'] = event['location']
-        return self.event1, self.event2
+            self.events.append(
+                dict(
+                    summary=event['summary'],
+                    start=event['start'].get('dateTime', event['start'].get('date')),
+                    location=event['location'] if 'location' in event.keys() else ''
+                )
+            )
+        return tuple(self.events)
 
 
 if __name__ == '__main__':
