@@ -8,10 +8,10 @@
         
         <meta name="description" content="An app that tracks the weather, calendar events, todo items, and grocery list.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--Custom CSS-->
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css') }}">
         <!--Bootstrap CSS-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <!--Custom CSS-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css') }}">
         <!--Font Awesome Icons-->
         <script src="https://kit.fontawesome.com/75bde6854e.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -195,10 +195,9 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <div class="header-title">
+                                        <h5 class="modal-title">New Item</h5>
+                                    </div>
                                 </div>
                                 <div class="modal-body">
                                     <form action="{{ url_for('save_grocery') }}" method="POST">
@@ -210,11 +209,13 @@
                                             <label for="groceryDescription">Description</label>
                                             <textarea class="form-control" id="groceryDescription" rows="3" placeholder="Optional" name="description"></textarea>
                                         </div>
-                                        <button type="submit" class="btn">Submit</button>
+                                        <div class="form-btns">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-submit">Submit</button>
+                                        </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -234,10 +235,9 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Modal title</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <div class="header-title">
+                                        <h5>New Todo</h5>
+                                    </div>
                                 </div>
                                 <div class="modal-body">
                                     <form action="{{ url_for('save_todo') }}" method="POST">
@@ -257,11 +257,14 @@
                                                 <option>Outside</option>
                                             </select>
                                         </div>
-                                        <button type="submit" class="btn">Submit</button>
+                                        <div class="form-btns">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-submit">Submit</button>
+                                        </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    
                                 </div>
                             </div>
                         </div>
