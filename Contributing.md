@@ -75,6 +75,6 @@ Option #2: If you have found a bug or would like to add a new feature to the pro
 
 * Write clean, readable code
 * I'd rather have too many comments than none at all
-* The goal is to help others learn how to contribute - no bug it too small
+* The goal is to help others learn how to contribute - no bug is too small
 * Explain thoroughly so coders at any level can understand. KISS ;)
 * Keep discussions polite and professional (See the COC above)

@@ -41,8 +41,18 @@ def index():
 
     # handle getting today's date for the header
     return render_template('index.html', date=today_date(), weather=get_weather, events=get_events, len_groc=len(groceries), groceries=groceries, len_todo=len(tasks), todos=tasks)
+  
+    # handle getting today's date for the header
+    return render_template('index.html', date=today_date(), weather=get_weather, events=get_events, len_groc=len(groceries), groceries=groceries, len_todo=len(tasks), todos=tasks)
 
+@app.route('/delete-grocery-item', methods=['GET', 'POST'])
+def delete_grocery():
+    data = request.form.to_dict()
+    print(data)
+    grocery.Glist.delete_item(data['item'], data['description'])
+    return redirect(url_for('index'))
 
+  
 @app.route('/save-grocery-item', methods=['GET', 'POST'])
 def save_grocery():
     data = request.form.to_dict()
@@ -50,6 +60,12 @@ def save_grocery():
     grocery.Glist.create_item(data['item'], data['description'])
     return redirect(url_for('index'))
 
+@app.route('/delete-todo-item', methods=['GET', 'POST'])
+def delete_todo():
+    data = request.form.to_dict()
+    print(data)
+    todos.Todos.delete_todo(data['title'], data['location'])
+    return redirect(url_for('index'))
 
 @app.route('/save-todo-item', methods=['GET', 'POST'])
 def save_todo():

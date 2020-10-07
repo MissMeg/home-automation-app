@@ -22,6 +22,10 @@ class Glist(Model):
         )
 
     @classmethod
+    def delete_item(cls, title, description):
+        cls.delete().where(cls.title == title, cls.description == description).execute()
+
+    @classmethod
     def get_all(cls):
         return cls.select().order_by(cls.title.asc())
 
