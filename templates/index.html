@@ -69,14 +69,14 @@
                     ></i>
                   </div>
                   <div class="row">
-                    <p class="col">
+                    <p class="col-12 col-md">
                       <i
                         class="today-weather fas fa-tint wow fadeIn"
                         data-wow-delay="0.4s"
                       ></i
                       ><span class="wow fadeIn" data-wow-delay="0.4s">60%</span>
                     </p>
-                    <p id="wind" class="col">
+                    <p id="wind" class="col-12 col-md">
                       <i
                         class="today-weather fas fa-wind wow fadeIn"
                         data-wow-delay="0.4s"
@@ -124,7 +124,7 @@
           <div class="container wow fadeIn" data-wow-delay="0.4s">
             <div class="row">
               {% for event in events %}
-              <div class="col">
+              <div class="col-12 col-md">
                 <div class="card mb-3" style="max-width: 540px">
                   <div class="row no-gutters">
                     <div class="col-md-8">
@@ -153,7 +153,7 @@
               <div class="container wow fadeIn" data-wow-delay="0.4s">
                 <div class="row">
                   {% if len_groc < 6 %}
-                  <div class="col">
+                  <div class="col-12 col-md">
                     {% for item in groceries %}
 
                     <div class="form-group form-check">
@@ -173,7 +173,7 @@
                     {% endfor %}
                   </div>
                   {% else %}
-                  <div class="col">
+                  <div class="col-12 col-md">
                     {% for i in range(5) %}
                     <div class="form-group form-check">
                       <label class="form-check-label" for="exampleCheck1"
@@ -190,7 +190,7 @@
                     </div>
                     {% endfor %}
                   </div>
-                  <div class="col">
+                  <div class="col-12 col-md">
                     {% for i in range(5, len_groc) %}
                     <div class="form-group form-check">
                       <label class="form-check-label" for="exampleCheck1"
@@ -221,7 +221,7 @@
               <div class="container wow fadeIn" data-wow-delay="0.4s">
                 <div class="row justify-content-around">
                   {% if len_todo < 6 %}
-                  <div class="col">
+                  <div class="col-12 col-md">
                     {% for task in todos %}
                     <div class="form-group form-check">
                       <i class="far fa-circle">
@@ -239,7 +239,7 @@
                     {% endfor %}
                   </div>
                   {% else %}
-                  <div class="col">
+                  <div class="col-12 col-md">
                     {% for i in range(5) %}
                     <div class="form-group form-check">
                       <i class="far fa-circle">
@@ -256,7 +256,7 @@
                     </div>
                     {% endfor %}
                   </div>
-                  <div class="col">
+                  <div class="col-12 col-md">
                     {% for i in range(5, len_todo) %}
                     <div class="form-group form-check">
                       <i class="far fa-circle">
@@ -292,8 +292,8 @@
                 data-toggle="modal"
                 data-target="#grocery-form"
                 ><i
-                  class="plus fas fa-plus wow rotateIn"
-                  data-wow-delay="0.8s"
+                  class="plus fas fa-plus wow fadeIn"
+                  data-wow-delay="0.4s"
                 ></i
               ></i>
             </div>
@@ -367,8 +367,8 @@
                 data-toggle="modal"
                 data-target="#todo-form"
                 ><i
-                  class="plus fas fa-plus wow rotateIn"
-                  data-wow-delay="0.8s"
+                  class="plus fas fa-plus wow fadeIn"
+                  data-wow-delay="0.4s"
                 ></i
               ></i>
             </div>
