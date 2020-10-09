@@ -1,289 +1,472 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        
-        <title>Home Automation App</title>
-        
-        <meta name="description" content="An app that tracks the weather, calendar events, todo items, and grocery list.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!--Bootstrap CSS-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <!--Custom CSS-->
-        <link rel="stylesheet" href="{{ url_for('static', filename='styles/app.css') }}">
-        <!--Font Awesome Icons-->
-        <script src="https://kit.fontawesome.com/75bde6854e.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <!-- bootstrap social css-->
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css" />
-        <!--animation css-->
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" />
-    </head>
-    
-    <body>
-        <!--Main Wrapper-->
-        <div id="body" class="container-fluid">
-            <div id="header" class="row">
-                <!--Header - Date-->
-                <h1 class="col wow fadeInDown" data-wow-delay="0.2s">{{ date }}</h1>
-            </div>
-            
-            <div class="row align-items-center">
-                <!--Weather Section-->
-                <section id="weather" class="col-5">
-                    <div class="container">
-                        <div class="row">
-                            <div id="center-weather" class="col">
-                                <div class="container">
-                                    <div class="row">
-                                        <i id="main-weather" class="col fas fa-sun wow fadeInLeft" data-wow-delay="0.5s"></i>
-                                    </div>
-                                    <div class="row">
-                                        <p class="col"><i class="today-weather fas fa-tint wow fadeInLeft" data-wow-delay="0.8s"></i><span class="wow fadeInLeft" data-wow-delay="0.7s">60%</span></p>
-                                        <p id="wind" class="col"><i class="today-weather fas fa-wind wow fadeInLeft" data-wow-delay="0.6s""></i><span class="wow fadeInLeft" data-wow-delay="0.5s"">12mph</span></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <p><i class="upcoming-weather fas fa-cloud-sun wow fadeInLeft" data-wow-delay="0.2s"></i><span class="wow fadeIn" data-wow-delay="0.3s">Tomorrow</span></p>
-                                <p><i class="upcoming-weather fas fa-cloud-sun-rain wow fadeInLeft" data-wow-delay="0.2s"></i><span class="wow fadeIn" data-wow-delay="0.3s">Saturday</span></p>
-                                <p><i class="upcoming-weather fas fa-cloud-showers-heavy wow fadeInLeft" data-wow-delay="0.2s"></i><span class="wow fadeIn" data-wow-delay="0.3s">Sunday</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-                <!--Events Section-->
-                <section id="events" class="col-7">
-                    <div class="container">
-                        <div class="row">
-                            {% for event in events %}
-                                <div class="col">
-                                    <div class="card mb-3 wow flipInX" data-wow-delay="0.9s"" style="max-width: 540px;">
-                                        <div class="row no-gutters">
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">{{ event['summary'] }}</h5>
-                                                    <p class="card-text">{{ event['start'] }}</p>
-                                                </div>
-                                            </div>
-                                            <!-- <div class="col-md-4">
+    <title>Home Automation App</title>
+
+    <meta
+      name="description"
+      content="An app that tracks the weather, calendar events, todo items, and grocery list."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--Custom CSS-->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/app.css') }}"
+    />
+    <!--Bootstrap CSS-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!--Font Awesome Icons-->
+    <script
+      src="https://kit.fontawesome.com/75bde6854e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- bootstrap social css-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css"
+    />
+    <!--animation css-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+    />
+  </head>
+
+  <body>
+    <!--Main Wrapper-->
+    <div id="body" class="container-fluid">
+      <div id="header" class="row">
+        <!--Header - Date-->
+        <h1 class="col wow fadeInDown" data-wow-delay="0.2s">{{ date }}</h1>
+      </div>
+
+      <div class="row align-items-center">
+        <!--Weather Section-->
+        <section id="weather" class="col-5">
+          <div class="container">
+            <div class="row">
+              <div id="center-weather" class="col">
+                <div class="container">
+                  <div class="row">
+                    <i
+                      id="main-weather"
+                      class="col fas fa-sun wow fadeIn"
+                      data-wow-delay="0.4s"
+                    ></i>
+                  </div>
+                  <div class="row">
+                    <p class="col">
+                      <i
+                        class="today-weather fas fa-tint wow fadeIn"
+                        data-wow-delay="0.4s"
+                      ></i
+                      ><span class="wow fadeIn" data-wow-delay="0.4s">60%</span>
+                    </p>
+                    <p id="wind" class="col">
+                      <i
+                        class="today-weather fas fa-wind wow fadeIn"
+                        data-wow-delay="0.4s"
+                      ></i
+                      ><span class="wow fadeIn" data-wow-delay="0.4s"
+                        >12mph</span
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <p>
+                  <i
+                    class="upcoming-weather fas fa-cloud-sun wow fadeIn"
+                    data-wow-delay="0.4s"
+                  ></i
+                  ><span class="wow fadeIn" data-wow-delay="0.4s"
+                    >Tomorrow</span
+                  >
+                </p>
+                <p>
+                  <i
+                    class="upcoming-weather fas fa-cloud-sun-rain wow fadeIn"
+                    data-wow-delay="0.4s"
+                  ></i
+                  ><span class="wow fadeIn" data-wow-delay="0.4s"
+                    >Saturday</span
+                  >
+                </p>
+                <p>
+                  <i
+                    class="upcoming-weather fas fa-cloud-showers-heavy wow fadeIn"
+                    data-wow-delay="0.4s"
+                  ></i
+                  ><span class="wow fadeIn" data-wow-delay="0.4s">Sunday</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--Events Section-->
+        <section id="events" class="col-7">
+          <div class="container wow fadeIn" data-wow-delay="0.4s">
+            <div class="row">
+              {% for event in events %}
+              <div class="col">
+                <div class="card mb-3" style="max-width: 540px">
+                  <div class="row no-gutters">
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ event['summary'] }}</h5>
+                        <p class="card-text">{{ event['start'] }}</p>
+                      </div>
+                    </div>
+                    <!-- <div class="col-md-4">
                                                 <img src="..." class="card-img" alt="...">
                                             </div> -->
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <div class="row">
-                <!--Grocery Section-->
-                <section id="grocery" class="col-5">
-                    <div class="row">
-                        <form action="">
-                            <div class="container">
-                                <div class="row">
-                                    {% if len_groc < 6 %}
-                                        <div class="col">
-                                        {% for item in groceries %}
-                                        
-                                            <div class="form-group form-check">
-                                                
-                                                <label class="form-check-label" for="exampleCheck1">{{ item.title }}</label>
-                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                {% if item.description %}
-                                                    <p>{{ item.description }}</p>
-                                                {% endif %}
-                                            </div>
-                                            
-                                        {% endfor %}
-                                        </div>
-                                    {% else %}
-                                        <div class="col">
-                                            {% for i in range(5) %}
-                                                <div class="form-group form-check">
-                                                    <label class="form-check-label" for="exampleCheck1">{{ groceries[i].title }}</label>
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                    {% if groceries[i].description %}
-                                                        <p>{{ groceries[i].description }}</p>
-                                                    {% endif %}
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                        <div class="col">
-                                            {% for i in range(5, len_groc) %}
-                                                <div class="form-group form-check">
-                                                    <label class="form-check-label" for="exampleCheck1">{{ groceries[i].title }}</label>
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                    {% if groceries[i].description %}
-                                                        <p>{{ groceries[i].description }}</p>
-                                                    {% endif %}
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </section>
-
-                <!--Todo Section-->
-                <section id="todo" class="col-7">
-                    <div class="row">
-                        <form action="">
-                            <div class="container">
-                                <div class="row justify-content-around">
-                                    {% if len_todo < 6 %}
-                                        <div class="col">
-                                        {% for task in todos %}
-                                            <div class="form-group form-check">
-                                                <i class="far fa-circle">
-                                                    <p class="room-loc">{{ task.location[0] }}</p>
-                                                </i>
-                                                <label class="form-check-label" for="exampleCheck1">{{ task.title }}</label>
-                                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                            </div>
-                                        {% endfor %}
-                                        </div>
-                                    {% else %}
-                                        <div class="col">
-                                            {% for i in range(5) %}
-                                                <div class="form-group form-check">
-                                                    <i class="far fa-circle">
-                                                        <p class="room-loc">{{ todos[i].location[0] }}</p>
-                                                    </i>
-                                                    <label class="form-check-label" for="exampleCheck1">{{ todos[i].title }}</label>
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                        <div class="col">
-                                            {% for i in range(5, len_todo) %}
-                                                <div class="form-group form-check">
-                                                    <i class="far fa-circle">
-                                                        <p class="room-loc">{{ todos[i].location[0] }}</p>
-                                                    </i>
-                                                    <label class="form-check-label" for="exampleCheck1">{{ todos[i].title }}</label>
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                </div>
-                                            {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </section>
-            </div>
-
-            <!--Add Icon - Opens the Modal-->
-            <div class="row">
-                <div class="col-5">
-                    <div class="row add-icon">
-                        <div class="col align-self-end ">
-                            <i class="fas fa-circle wow rotateIn" data-wow-delay="0.8s" data-toggle="modal" data-target="#grocery-form"><i class="plus fas fa-plus wow rotateIn" data-wow-delay="0.8s"></i></i>
-                        </div>
-                    </div>
-
-                    <!--Grocery Form Modal-->
-                    <div id="grocery-form" class="modal modal-grocery" tabindex="-1" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div class="header-title">
-                                        <h5 class="modal-title">New Item</h5>
-                                    </div>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="{{ url_for('save_grocery') }}" method="POST">
-                                        <div class="form-group">
-                                            <label for="groceryItem">Item Name</label>
-                                            <input type="text" class="form-control" id="groceryItem" name="item">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="groceryDescription">Description</label>
-                                            <textarea class="form-control" id="groceryDescription" rows="3" placeholder="Optional" name="description"></textarea>
-                                        </div>
-                                        <div class="form-btns">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-submit">Submit</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
-
-                <!--Add Icon - Opens the Modal-->
-                <div class="col-7">
-                    <div class="row add-icon">
-                        <div class="col align-self-end">
-                            <i class="fas fa-circle wow rotateIn" data-wow-delay="0.8s" data-toggle="modal" data-target="#todo-form"><i class="plus fas fa-plus wow rotateIn" data-wow-delay="0.8s"></i></i>
-                        </div>
-                    </div>
-
-                    <!--Todo Form Modal-->
-                    <div id="todo-form" class="modal modal-todo" tabindex="-1" role="dialog">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <div class="header-title">
-                                        <h5>New Todo</h5>
-                                    </div>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="{{ url_for('save_todo') }}" method="POST">
-                                        <div class="form-group">
-                                            <label for="todoTitle">Todo Title</label>
-                                            <input type="text" class="form-control" id="todoTitle" name="title">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="roomLocation">Room Location</label>
-                                            <select class="form-control" id="roomLocation" name="location">
-                                                <option>Living Room</option>
-                                                <option>Kitchen</option>
-                                                <option>Dining Room</option>
-                                                <option>Basement</option>
-                                                <option>Office</option>
-                                                <option>Bedroom</option>
-                                                <option>Outside</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-btns">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-submit">Submit</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="modal-footer">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
+              {% endfor %}
             </div>
-            <!-- this line was not displaying in the correct format hence commented out -->
-            <!--p>{{ weather }}</p-->
+          </div>
+        </section>
+      </div>
+
+      <div class="row">
+        <!--Grocery Section-->
+        <section id="grocery" class="col-5">
+          <div class="row">
+            <form action="">
+              <div class="container wow fadeIn" data-wow-delay="0.4s">
+                <div class="row">
+                  {% if len_groc < 6 %}
+                  <div class="col">
+                    {% for item in groceries %}
+
+                    <div class="form-group form-check">
+                      <label class="form-check-label" for="exampleCheck1"
+                        >{{ item.title }}</label
+                      >
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                      {% if item.description %}
+                      <p>{{ item.description }}</p>
+                      {% endif %}
+                    </div>
+
+                    {% endfor %}
+                  </div>
+                  {% else %}
+                  <div class="col">
+                    {% for i in range(5) %}
+                    <div class="form-group form-check">
+                      <label class="form-check-label" for="exampleCheck1"
+                        >{{ groceries[i].title }}</label
+                      >
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                      {% if groceries[i].description %}
+                      <p>{{ groceries[i].description }}</p>
+                      {% endif %}
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <div class="col">
+                    {% for i in range(5, len_groc) %}
+                    <div class="form-group form-check">
+                      <label class="form-check-label" for="exampleCheck1"
+                        >{{ groceries[i].title }}</label
+                      >
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                      {% if groceries[i].description %}
+                      <p>{{ groceries[i].description }}</p>
+                      {% endif %}
+                    </div>
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <!--Todo Section-->
+        <section id="todo" class="col-7">
+          <div class="row">
+            <form action="">
+              <div class="container wow fadeIn" data-wow-delay="0.4s">
+                <div class="row justify-content-around">
+                  {% if len_todo < 6 %}
+                  <div class="col">
+                    {% for task in todos %}
+                    <div class="form-group form-check">
+                      <i class="far fa-circle">
+                        <p class="room-loc">{{ task.location[0] }}</p>
+                      </i>
+                      <label class="form-check-label" for="exampleCheck1"
+                        >{{ task.title }}</label
+                      >
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                    </div>
+                    {% endfor %}
+                  </div>
+                  {% else %}
+                  <div class="col">
+                    {% for i in range(5) %}
+                    <div class="form-group form-check">
+                      <i class="far fa-circle">
+                        <p class="room-loc">{{ todos[i].location[0] }}</p>
+                      </i>
+                      <label class="form-check-label" for="exampleCheck1"
+                        >{{ todos[i].title }}</label
+                      >
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                    </div>
+                    {% endfor %}
+                  </div>
+                  <div class="col">
+                    {% for i in range(5, len_todo) %}
+                    <div class="form-group form-check">
+                      <i class="far fa-circle">
+                        <p class="room-loc">{{ todos[i].location[0] }}</p>
+                      </i>
+                      <label class="form-check-label" for="exampleCheck1"
+                        >{{ todos[i].title }}</label
+                      >
+                      <input
+                        type="checkbox"
+                        class="form-check-input"
+                        id="exampleCheck1"
+                      />
+                    </div>
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+
+      <!--Add Icon - Opens the Modal-->
+      <div class="row">
+        <div class="col-5">
+          <div class="row add-icon">
+            <div class="col align-self-end">
+              <i
+                class="fas fa-circle wow fadeIn"
+                data-wow-delay="0.4s"
+                data-toggle="modal"
+                data-target="#grocery-form"
+                ><i
+                  class="plus fas fa-plus wow rotateIn"
+                  data-wow-delay="0.8s"
+                ></i
+              ></i>
+            </div>
+          </div>
+
+          <!--Grocery Form Modal-->
+          <div
+            id="grocery-form"
+            class="modal modal-grocery"
+            tabindex="-1"
+            role="dialog"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form action="{{ url_for('save_grocery') }}" method="POST">
+                    <div class="form-group">
+                      <label for="groceryItem">Item Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="groceryItem"
+                        name="item"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="groceryDescription">Description</label>
+                      <textarea
+                        class="form-control"
+                        id="groceryDescription"
+                        rows="3"
+                        placeholder="Optional"
+                        name="description"
+                      ></textarea>
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!--Bootstrap-->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-        <script>
-            new WOW().init();
-        </script>
-        <!--Custom JavaScript-->
-        <script src="{{ url_for('static', filename='app.js') }}" async defer></script>
-    </body>
+        <!--Add Icon - Opens the Modal-->
+        <div class="col-7">
+          <div class="row add-icon">
+            <div class="col align-self-end">
+              <i
+                class="fas fa-circle wow fadeIn"
+                data-wow-delay="0.4s"
+                data-toggle="modal"
+                data-target="#todo-form"
+                ><i
+                  class="plus fas fa-plus wow rotateIn"
+                  data-wow-delay="0.8s"
+                ></i
+              ></i>
+            </div>
+          </div>
+
+          <!--Todo Form Modal-->
+          <div
+            id="todo-form"
+            class="modal modal-todo"
+            tabindex="-1"
+            role="dialog"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Modal title</h5>
+                  <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form action="{{ url_for('save_todo') }}" method="POST">
+                    <div class="form-group">
+                      <label for="todoTitle">Todo Title</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="todoTitle"
+                        name="title"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label for="roomLocation">Room Location</label>
+                      <select
+                        class="form-control"
+                        id="roomLocation"
+                        name="location"
+                      >
+                        <option>Living Room</option>
+                        <option>Kitchen</option>
+                        <option>Dining Room</option>
+                        <option>Basement</option>
+                        <option>Office</option>
+                        <option>Bedroom</option>
+                        <option>Outside</option>
+                      </select>
+                    </div>
+                    <button type="submit" class="btn">Submit</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- this line was not displaying in the correct format hence commented out -->
+      <!--p>{{ weather }}</p-->
+    </div>
+
+    <!--Bootstrap-->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script>
+      new WOW().init();
+    </script>
+    <!--Custom JavaScript-->
+    <script
+      src="{{ url_for('static', filename='app.js') }}"
+      async
+      defer
+    ></script>
+  </body>
 </html>
