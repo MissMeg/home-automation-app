@@ -78,6 +78,9 @@ Weather Styles
 /********************************
 Events Styles
 ********************************/
+#events .card-container {
+  margin-right: 5rem;
+}
 
 #events .card {
   box-shadow: 6px 6px 16px rgba(195, 195, 192, 0.5),
